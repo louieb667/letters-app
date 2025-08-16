@@ -1,7 +1,12 @@
 from flask import Flask, render_template, request, redirect, url_for
+import os
 import datetime
 
-app = Flask(__name__)
+# Ensure Flask knows exactly where templates are
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+TEMPLATE_DIR = os.path.join(BASE_DIR, "templates")
+
+app = Flask(__name__, template_folder=TEMPLATE_DIR)
 
 PASSWORD = "secret123"
 
